@@ -1,0 +1,1 @@
+# Web Components SVG Icon
