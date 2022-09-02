@@ -1,17 +1,14 @@
 
 import piq from '/src/core/piq.js';
 
+// Mock use case
 class TheThing extends piq {
-
-  static namespace = 'the-thing';
 
   name() {
     return 'the-thing'
   };
 
   data() {
-    // Use this.props() method from parent object
-    // to do getAttribute() operation
     return {
       type: this.props('type'),
       label: this.props('label')
