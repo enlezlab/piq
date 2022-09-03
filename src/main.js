@@ -8,11 +8,8 @@ class TheThing extends piq {
     return 'the-thing'
   };
 
-  data() {
-    return {
-      type: this.props('type'),
-      label: this.props('label')
-    }
+  data(s) {
+    return super.props(s);
   };
 
   style() {
@@ -26,15 +23,11 @@ class TheThing extends piq {
   template() {
     return `
       <div>test</div>
-      <div> ${this.data().type} </div>
-      <div> ${this.data().label} </div>
+      <div> ${this.data('type')} </div>
+      <div> ${this.data('label')} </div>
     `;
   }
-
-  connectedCallback() {
-    this.innerHTML = this.template();
-  };
-
 };
 
 customElements.define('the-thing', TheThing);
+

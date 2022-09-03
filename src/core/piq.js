@@ -3,14 +3,13 @@
 export default class piq extends HTMLElement {
 
   constructor() {
-    //use super to access decendent's context
+    // Use super to access decendent's context
     const s = super()
-    //TODO: Only set style when both
-    // name and style present
-    this.setStyle({
-      id: s.name(),
-      css: s.style()
-    });
+    this.styleID = `style_${s.name()}`;
+    this.CSS = s.style();
+
+    // Component template
+    this.tpl = s.template();
   };
 
   props(s) {
@@ -23,12 +22,22 @@ export default class piq extends HTMLElement {
     const css = conf.css;
     const styleNode = document.getElementById(id);
 
-    if (!styleNode) {
-      const style = document.createElement('style');
-      style.id = id;
-      style.innerHTML = css;
-      document.head.appendChild(style);
+    if (styleNode) {
+      return;
     }
+
+    const style = document.createElement('style');
+    style.id = id;
+    style.innerHTML = css;
+    document.head.appendChild(style);
+  };
+
+  connectedCallback() {
+    this.setStyle({
+      id: this.styleID,
+      css: this.CSS
+    });
+    this.innerHTML = this.tpl;
   };
 };
 
