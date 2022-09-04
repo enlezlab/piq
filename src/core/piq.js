@@ -5,8 +5,6 @@ export default class piq extends HTMLElement {
   constructor() {
     // Use super to access decendent's context
     const s = super()
-    this.styleID = `style_${s.name()}`;
-    this.CSS = s.style();
 
     // Set Style
     this.setStyle = () => {
@@ -29,9 +27,6 @@ export default class piq extends HTMLElement {
       this.innerHTML = s.template();
     };
 
-    this.attr = () => {
-      return s.getAttributeNames();
-    }
   };
 
   props(s) {
@@ -40,8 +35,7 @@ export default class piq extends HTMLElement {
   };
 
   static get observedAttributes() {
-    /* array of attribute names to monitor for changes */
-    return ['type', 'label'];
+    return this.attr();
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
