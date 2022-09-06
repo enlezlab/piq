@@ -37,6 +37,10 @@ class TheThing extends piq {
         <div> ${this.data('label')} </div>
     `;
   }
+
+  connected() {
+    console.log('connected');
+  }
 };
 
 customElements.define('the-thing', TheThing);

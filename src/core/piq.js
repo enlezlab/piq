@@ -3,10 +3,10 @@
 export default class piq extends HTMLElement {
 
   constructor() {
-    //Use super to access decendent's context
+    // Use super to access decendent's context
     const s = super()
 
-    //Set Style
+    // Set Style
     this.setStyle = () => {
       const id = `style_${s.name()}`;;
       const css = s.style();
@@ -22,15 +22,20 @@ export default class piq extends HTMLElement {
       document.head.appendChild(style);
     };
 
-    //Render method for compoenent
+    // Render method for compoenent
     this.render = async () => {
+
       this.innerHTML = await s.template();
+
+      if (s.connected !== undefined) {
+        await s.connected();
+      }
     };
 
   };
 
   props(s) {
-    //return attribute data
+    // return attribute data
     return this.getAttribute(s);
   };
 
