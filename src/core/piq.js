@@ -22,7 +22,7 @@ export default class piq extends HTMLElement {
       document.head.appendChild(style);
     };
 
-    // Render method for compoenent
+    // Render method for component
     this.render = async () => {
 
       this.innerHTML = await s.template();
@@ -40,6 +40,12 @@ export default class piq extends HTMLElement {
   };
 
   static get observedAttributes() {
+
+    // Support for not breaking iOS 12 (not support static)
+    if (!this.attr) {
+      return;
+    }
+
     return this.attr();
   }
 
