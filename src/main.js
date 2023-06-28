@@ -22,8 +22,8 @@ class TheThing extends piq {
   style() {
     return `
 
-      123 {
-        345
+      .child-class {
+        /*test scope*/
       }
 
       .test-name {
