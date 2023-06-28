@@ -21,6 +21,16 @@ class TheThing extends piq {
 
   style() {
     return `
+
+      123 {
+        345
+      }
+
+      .test-name {
+        color: red;
+        background: green;
+      }
+
       ${this.name()} {
         display: block;
         border: 1px solid red;
