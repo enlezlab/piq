@@ -2,4 +2,5 @@
 
 rm -rf dist
 mkdir dist
-cp ./src/core/piq.js ./dist/piq.dist.js
+
+esbuild ./src/core/piq.js --bundle --format=esm --outfile=./dist/piq.dist.js

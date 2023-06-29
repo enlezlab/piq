@@ -1,5 +1,6 @@
 
 import piq from '/src/core/piq.js';
+// import piq from '../dist/piq.dist.js';
 
 // Mock use case
 class TheThing extends piq {
@@ -24,6 +25,10 @@ class TheThing extends piq {
 
       .child-class {
         /*test scope*/
+      }
+
+      ${this.name()} .yo {
+
       }
 
       .test-name {

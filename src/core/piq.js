@@ -1,32 +1,4 @@
-
-
-/* Add custom tag name as scope */
-const scopedCSS = (s, prefix) => {
-  const line = (s.split('\n'));
-  const segment = line.map((i) => {
-    let r = []
-
-    if (i.includes('{') && !i.includes(prefix)) {
-      i = prefix +' ' + i.replace(/  +/g, ' ');
-      i = i.replace(/  +/g, ' ');
-      r.push(i)
-    } else {
-      r.push(i)
-    }
-
-    return r;
-  });
-
-  let scope = '';
-
-  segment.forEach((i) => {
-    scope += `${i}\n`;
-  });
-
-  console.log('TODO: MOVE [scopedCSS] TO ITS OWN FILE');
-  return scope;
-};
-
+import scopedStyle from '../utils/scoped-style.js';
 /* main entry point */
 class piq extends HTMLElement {
 
@@ -46,7 +18,7 @@ class piq extends HTMLElement {
 
       const style = document.createElement('style');
       style.id = id;
-      style.innerHTML = scopedCSS(css, s.name());
+      style.innerHTML = scopedStyle(css, s.name());
       document.head.appendChild(style);
     };
 
