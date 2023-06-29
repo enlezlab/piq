@@ -38,7 +38,7 @@ const hasPrefix = (s, pfx) => {
  * @param {string} s - CSS string value
  * @param {string} prefix - Prefix to use to scope CSS
  * @returns {string}
- * @description Add prefix as namespace add to multi line CSS string
+ * @description Add prefix as namespace to multi line CSS string
  *
  * @example
  *
