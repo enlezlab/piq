@@ -1,6 +1,6 @@
-
-
-export default class piq extends HTMLElement {
+import scopedStyle from '../utils/scoped-style.js';
+/* main entry point */
+class piq extends HTMLElement {
 
   constructor() {
     // Use super to access decendent's context
@@ -18,7 +18,7 @@ export default class piq extends HTMLElement {
 
       const style = document.createElement('style');
       style.id = id;
-      style.innerHTML = css;
+      style.innerHTML = scopedStyle(css, s.name());
       document.head.appendChild(style);
     };
 
@@ -63,4 +63,4 @@ export default class piq extends HTMLElement {
 };
 
 
-
+export default piq;

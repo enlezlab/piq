@@ -1,5 +1,6 @@
 
 import piq from '/src/core/piq.js';
+// import piq from '../dist/piq.dist.js';
 
 // Mock use case
 class TheThing extends piq {
@@ -21,6 +22,20 @@ class TheThing extends piq {
 
   style() {
     return `
+
+      .child-class {
+        /*test scope*/
+      }
+
+      ${this.name()} .yo {
+
+      }
+
+      .test-name {
+        color: red;
+        background: green;
+      }
+
       ${this.name()} {
         display: block;
         border: 1px solid red;
