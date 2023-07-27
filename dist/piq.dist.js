@@ -11,11 +11,17 @@ var hasPrefix = (s, pfx) => {
   }
   return false;
 };
+var isMediaQuery = (s) => {
+  if (s.includes("@")) {
+    return true;
+  }
+  return false;
+};
 var scopedStyle = (s, pfx) => {
   const lines = s.split("\n");
   const segment = lines.map((line) => {
     let r = [];
-    if (isHead(line) && !hasPrefix(line, pfx)) {
+    if (isHead(line) && !hasPrefix(line, pfx) && !isMediaQuery(s)) {
       line = pfx + " " + line.trim();
       r.push(line);
     } else {
