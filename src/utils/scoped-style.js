@@ -1,5 +1,5 @@
 
-/**
+/* *
  * @function
  * @name isHead
  * @param {string} s - String value
@@ -15,7 +15,7 @@ const isHead = (s) => {
   return false;
 };
 
-/**
+/* *
  * @function
  * @name hasPrefix
  * @param {string} s - String value
@@ -26,6 +26,22 @@ const isHead = (s) => {
 
 const hasPrefix = (s, pfx) => {
   if (s.includes(pfx)) {
+    return true;
+  }
+
+  return false;
+};
+
+/* *
+ * @function
+ * @name isMediaQuery
+ * @param {string} s - Stirng value
+ * @returns {boolean}
+ * @description Check if line is media query
+ * */
+
+const isMediaQuery = (s) => {
+  if (s.includes('@')) {
     return true;
   }
 
@@ -64,7 +80,7 @@ const scopedStyle = (s, pfx) => {
   const segment = lines.map((line) => {
     let r = []
 
-    if (isHead(line) && !hasPrefix(line, pfx)) {
+    if (isHead(line) && !hasPrefix(line, pfx) && !isMediaQuery(s)) {
       line = pfx + ' ' + line.trim();
       r.push(line);
     } else {

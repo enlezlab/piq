@@ -41,6 +41,12 @@ class TheThing extends piq {
         border: 1px solid red;
         padding: 1rem
       }
+
+      @media (max-width: 768px) {
+        .test-name {
+          background: purple;
+        }
+      }
     `;
   };
 
@@ -48,7 +54,7 @@ class TheThing extends piq {
     return `
       <div>===========fisrt level</div>
         <well-then type="${this.data('type')}" label="789"></well-then>
-        <div> ${this.data('type')} </div>
+        <div class="test-name"> ${this.data('type')} </div>
         <div> ${this.data('label')} </div>
     `;
   }
