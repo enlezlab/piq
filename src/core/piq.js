@@ -1,4 +1,5 @@
 import scopedStyle from '../utils/scoped-style.js';
+
 /* main entry point */
 class piq extends HTMLElement {
 
