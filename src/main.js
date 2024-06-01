@@ -1,6 +1,8 @@
 
-import piq from '/src/core/piq.js';
-// import piq from '../dist/piq.dist.js';
+// import piq from '/src/core/piq.js';
+// import {html, css} from '/src/utils/template-tag.js';
+import piq from '../dist/piq/core/piq.js';
+import {html, css} from '../dist/piq/utils/template-tag.js';
 
 // Mock use case
 class TheThing extends piq {
@@ -21,7 +23,7 @@ class TheThing extends piq {
   };
 
   style() {
-    return `
+    return css`
 
       .child-class {
         /*test scope*/
@@ -51,7 +53,7 @@ class TheThing extends piq {
   };
 
   template() {
-    return `
+    return html`
       <div>===========fisrt level</div>
         <well-then type="${this.data('type')}" label="789"></well-then>
         <div class="test-name"> ${this.data('type')} </div>
@@ -86,8 +88,8 @@ class WellThen extends piq {
   };
 
   style() {
-    return `
-      ${this.name()} {
+    return css`
+      {
         display: block;
         border: 1px solid orange;
         padding: 1rem;
@@ -96,7 +98,7 @@ class WellThen extends piq {
   };
 
   template() {
-    return `
+    return html`
       <div>====second level</div>
       <div> ${this.data('type')} </div>
       <div> ${this.data('label')} </div>

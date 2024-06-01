@@ -3,4 +3,4 @@
 rm -rf dist
 mkdir dist
 
-esbuild ./src/core/piq.js --bundle --format=esm --outfile=./dist/piq.dist.js
+esbuild ./src/utils/template-tag.js ./src/core/piq.js --bundle --format=esm --outdir=./dist/piq
